@@ -92,6 +92,8 @@ vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
+vim.o.guifont = 'Iosevka Nerd Font:h15'
+vim.g.neovide_opacity = 0.9
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -881,20 +883,26 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'Mofiqul/dracula.nvim',
-    priority = 1000, -- Make sure to load this before all the other start plugins.
+    -- 'Mofiqul/dracula.nvim',
+    -- priority = 1000, -- Make sure to load this before all the other start plugins.
+    -- config = function()
+    --   ---@diagnostic disable-next-line: missing-fields
+    --   require('dracula').setup {
+    -- styles = {
+    -- comments = { italic = false }, -- Disable italics in comments
+    -- },
+    'catppuccin/nvim',
+    priority = 1000,
     config = function()
-      ---@diagnostic disable-next-line: missing-fields
-      require('dracula').setup {
-        -- styles = {
-        -- comments = { italic = false }, -- Disable italics in comments
-        -- },
+      require('catppuccin').setup {
+        flavour = 'mocha',
+        transparent_background = true,
       }
 
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'dracula'
+      vim.cmd.colorscheme 'catppuccin'
     end,
   },
 
